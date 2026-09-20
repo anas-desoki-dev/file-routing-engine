@@ -10,7 +10,7 @@ In massive construction projects, sorting daily incoming documents (PDFs, Folder
 1. **Network Overhead:** Transferring thousands of tiny files individually across a corporate network is agonizingly slow.
 2. **Windows Path Limits:** Deeply nested engineering folders constantly hit the Windows 260-character `MAX_PATH` limit, causing silent transfer failures.
 3. **Human Error:** A single typo in a file's serial number can send it to the wrong project directory, losing the document forever.
-4. **UI Freezing:** Loading 100,000+ files into a standard desktop GUI crashes the application.
+4. **UI Freezing:** Loading tens of thousands of files into a standard desktop GUI crashes the application.
 
 ## 💡 The Solution & Core Features
 
@@ -23,7 +23,7 @@ In massive construction projects, sorting daily incoming documents (PDFs, Folder
 * **Native `MAX_PATH` Bypass:** Transparently prefixes deep network paths with `\\?\UNC\` to natively bypass Windows' 260-character limitation without requiring registry edits or Admin rights.
 
 ### 3. Custom UI Virtualization (High Performance)
-* **VirtualList Rendering:** Engineered a custom canvas-based virtual scrolling list (`VirtualList`). It renders *only* the rows currently visible on the screen (+ a small buffer), allowing the UI to handle 100,000+ items smoothly with near-zero memory bloat.
+* **VirtualList Rendering:** Engineered a custom canvas-based virtual scrolling list (`VirtualList`). It renders *only* the rows currently visible on the screen (+ a small buffer), allowing the UI to handle tens of thousands of items smoothly with near-zero memory bloat.
 * **Asynchronous Architecture:** All heavy I/O scanning and transferring operations run on isolated daemon threads, streaming live updates to a custom Progress Window via event queues.
 
 ## 🛠 Tech Stack & Architecture
